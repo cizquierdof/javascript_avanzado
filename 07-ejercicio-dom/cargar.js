@@ -24,7 +24,9 @@ const createTable=()=>{
 
     tabla.appendChild(_headerTable());
 
-    
+    _createTableRow(pizzas).forEach(element=>{
+        tabla.appendChild(element)
+    });
 
 }
 
@@ -40,8 +42,20 @@ const _headerTable=()=>{
     return tr_header;
 }
 
- const _createTableRow=(pz)=>{
+ const _createTableRow=(pizzas)=>{
+    const arrayrows=[];
+    pizzas.forEach(element => {
+        const tr=document.createElement("tr");
+        const tdId=document.createElement("td");
+        tdId.innerText=element.id;
+        const tdNombre=document.createElement("td");
+        tdNombre.innerText=element.nombre;
+        tr.appendChild(tdId);
+        tr.appendChild(tdNombre);
+        arrayrows.push(tr);
 
+    });
+    return arrayrows;
  }
 
 const renderElement = () => {
