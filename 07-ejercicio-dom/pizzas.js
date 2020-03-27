@@ -1,4 +1,5 @@
-import { pizzas as listaPizzas } from './pizzas-content.js';
+import {init} from './cargar.js';
 
-console.log(listaPizzas[0].id);
+init();
+
 
