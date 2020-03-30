@@ -1,0 +1,13 @@
+
+
+.tabla-pizzas {
+    border: 1px solid black;
+}
+
+.impar {
+    background-color: lightgray;
+}
+
+.par {
+    background-color: aliceblue;
+}
