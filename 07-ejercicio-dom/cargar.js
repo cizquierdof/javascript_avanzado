@@ -8,8 +8,7 @@ const createTable = () => {
     *creo la tabla y le añado un id que luego utilizaremos para localizarla
     *************/
     const tabla = document.createElement("table");
-    tabla.setAttribute('id', 'tabla_pizzas');
-    tabla.setAttribute('class','sortable');
+    tabla.id='tabla_pizzas';
 
     //meto la clase en el div
     const divTabla = document.getElementById("tabla");
@@ -40,6 +39,12 @@ const _headerTable = () => {
     thead.appendChild(tr_header);
     tr_header.appendChild(th_id);
     tr_header.appendChild(th_nombre);
+
+    const _cambia_background=(element,c)=>{
+        element.style.trBackgroundColor=c;
+    
+    }
+    
     //crea los estilos de visualización de la cabecera de la tabla
     thead.style.cssText = 'background: #0B6FA4; border-bottom: 5px solid #FFFFFF;'
         + ' font-weight: bold; font-size: 17px;  color: #FFFFFF;';
@@ -83,12 +88,9 @@ const _createTableRow = (pizzas) => {
         row % 2 ? trBackgroundColor = '#ffffff' : trBackgroundColor = '#d0e4f5';
         tr.style.background = trBackgroundColor;
 
-
     });
     return arrayrows;   //devolvemos un array de filas de datos para la tabla
 }
-
-
 
 //parámetro que enviamos a init para que empiece a renderizar elementos
 const renderElement = () => {
