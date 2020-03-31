@@ -2,7 +2,31 @@
 //se debe importar sin llaves
 import pizzas from './pizzas-content.js';
 
-const createTable = () => {
+const _ordenaPizzas = (campo)=>{
+    let pizzaOrdenada=[];
+
+    if(campo=='id'){
+        pizzaOrdenada=pizzas.sort(
+            (a,b)=>{
+                if(a.id>b.id){return 1;}
+                if(a.id<b.id){return -1;}
+                return 0;
+            });
+
+    } else if (campo='nombre'){
+        pizzaOrdenada= pizzas.sort(
+            (a,b)=>{
+                if(a.nombre>b.nombre){return 1;}
+                if(a.nombre<b.nombre){return -1;}
+                return 0;
+            });
+    } 
+    console.log(pizzaOrdenada);
+    createTable(pizzaOrdenada?pizzaOrdenada:pizzas)
+    
+};
+
+const createTable = (p) => {
 
     /*****************
     *creo la tabla y le añado un id que luego utilizaremos para localizarla
@@ -12,13 +36,17 @@ const createTable = () => {
 
     //meto la clase en el div
     const divTabla = document.getElementById("tabla");
+    divTabla.innerHTML='';
     divTabla.appendChild(tabla);
 
     //llamamos a los elementos de la cabecera y se los metemos en la tabla
     tabla.appendChild(_headerTable());
 
+
+
     //recorremos el array creado por _createTableRow y lo añadimos como elementos
-    _createTableRow(pizzas).forEach(element => {
+    _createTableRow(p?p:pizzas).forEach(element => {
+        
         tabla.appendChild(element)
     });
 
@@ -32,8 +60,37 @@ const _headerTable = () => {
     const tr_header = document.createElement("tr");   //<tr></tr>
     const th_id = document.createElement("th");       //<th>id</th>
     th_id.innerText = 'Id';
+
     const th_nombre = document.createElement("th");   //<th>Nombre</th>
     th_nombre.innerText = 'Nombre';
+
+    //listeners
+    th_nombre.addEventListener('click', 
+    ()=>{
+        _ordenaPizzas('nombre');
+    });
+    th_nombre.addEventListener('mouseover',()=>{
+        th_nombre.style.backgroundColor='lightgrey';
+        th_nombre.style.cursor='pointer';
+    });
+    th_nombre.addEventListener('mouseout',()=>{
+        th_nombre.style.backgroundColor='#0B6FA4';
+        th_nombre.style.cursor='default';
+    });
+
+    th_id.addEventListener('click', 
+    ()=>{
+
+        _ordenaPizzas('id');
+    });
+    th_id.addEventListener('mouseover',()=>{
+        th_id.style.backgroundColor='lightgrey';
+        th_id.style.cursor='pointer';
+    });
+    th_id.addEventListener('mouseout',()=>{
+        th_id.style.backgroundColor='#0B6FA4';
+        th_id.style.cursor='default';
+    });
 
     //mete los elementos en sus correspondientes padres
     thead.appendChild(tr_header);
@@ -42,6 +99,7 @@ const _headerTable = () => {
 
     const _cambia_background=(element,c)=>{
         element.style.trBackgroundColor=c;
+
     
     }
     
