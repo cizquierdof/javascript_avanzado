@@ -68,6 +68,36 @@ Si pulsamos "nombre" se nos ordenarán por nombre
 - Nombre pizza
 - Ingredientes
 
+#### Tips
+- Recomiendo el añadir el evento al crear el table row del data (tr)
+
+Manejador: 
+```javascript
+const _pizzaRowHandler = (e, pizza) => {
+    console.log(pizza);
+}
+```
+
+Y donde se crea la row
+```javascript
+    tr.addEventListener("click",
+        e => _pizzaRowHandler(e, pizza)
+    )
+```
+
+Toda la parte de divs , cssgrid y tamaños (plantilla) en el html
+
+```html
+    <div class="container">
+        <div id="tabla"></div>
+        <div id="detallepizza"></div>
+    </div>
+```
+
+La tabla, que puede ser muy grande, si hacemos el div de tamaño fijo y overflow auto  o overflow-y scroll mantenemos el tamaño
+
+
+
 # 4. Mostrar los comentarios en la descripción de la pizza
 - Máx 3 comentarios
 
