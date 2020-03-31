@@ -50,11 +50,19 @@ element.className = "impar";
 
 
 
-
-
 # 2. Añadir un evento en el header para ordenar lo elementos por el campo pulsado
 Esto es, si pulsamos "id" se nos ordenarán por id
 Si pulsamos "nombre" se nos ordenarán por nombre
+
+#### Tips
+
+- Para esto es importante tener el render(), porque habrá que llamarlo con el sort del array de pizzas
+- Hay que capturar el evento y ver qué elemento ha generado la llamada, para saber por dónde ordenar
+- No es necesario cambiar la ordenación de arriba abajo y al revés, yo sí lo haré, pero es guardarse el estado en una variable global
+
+
+
+
 
 # 3. Añadir un evento que al pulsar una fila nos muestre los detalles de la pizza
 - Nombre pizza
