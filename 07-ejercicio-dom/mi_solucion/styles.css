@@ -1,21 +1,84 @@
+h1,h2,h3,p{
+    margin: 0;
+    padding: 0;
+}
 body{
-    width: 768px;
+    width: 1024;
     margin: auto;
 }
-.grid-container{
-    margin: 1em;
-    background-color: #e9e8e8;
+.wrapper{
     display: grid;
-    grid-template-columns: 3fr 4fr;
-    text-align: center;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+.grid{
+    margin: 10px;
+    display: grid;
+    height: 400px;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 280px 1fr 80px;
+    grid-template-areas: 
+        "ingredientes foto"
+        "titulo-comentario titulo-comentario"
+        "comentarios comentarios";
+    gap: 5px;
+}
+
+#ingredientes{
+    grid-area: ingredientes;
+    background-color: #d0e4f5;
+}
+
+#ingredientes h2{
+    padding: 5px 0 5px 20px;
+    background-color: #0B6FA4;
+    color: #d0e4f5;
+}
+
+#foto{
+    grid-area: foto;
+    background-color: #d0e4f5;
+    align-self: center;
+}
+
+#foto img{
+    max-height: 280PX;
+    
+}
+#titulo-comentario{
+    grid-area: titulo-comentario;
+    background-color: #d0e4f5;
+    font-size: 17px;
+    font-weight: bold;
+    padding: 5px 0 5px 15px;
+    align-self: center;
+}
+
+#comentarios{
+    grid-area: comentarios;
+    background-color: #d0e4f5;
+    font-size: 17px;
+    overflow: scroll;
+    padding-left: 1em;
+}
+
+
+#tabla{
+    margin: 10px;
+    overflow: auto;
+    height: 400px;
+}
+#tabla_pizzas{
+    width: 100%;
 }
 #tr_header{
+
     background: #0B6FA4; border-bottom: 5px solid #FFFFFF;
     font-weight: bold; 
     font-size: 17px;  
     color: #FFFFFF;
-    
 }
+
 #tabla_pizzas thead th:hover{
     cursor: pointer;
     background-color: lightgray
@@ -24,7 +87,6 @@ body{
     font-size:17px; 
     height: 2em;
     padding: 5px;
-
 }
 tr{
     background-color: #FFFFFF;
