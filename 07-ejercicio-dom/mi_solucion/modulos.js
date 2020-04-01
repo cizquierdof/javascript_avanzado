@@ -88,14 +88,19 @@ const _headerTable = () => {
 const _muestraDetallesPizza = (pizza) => {
     console.log(pizza);
 
+    /****************
+     * render de ingredientes de pizzas
+     * */
     const div_detalle = document.getElementById('ingredientes');
-
+    //limpia el contenido para que no se acumule
     div_detalle.innerHTML='';
 
+    //nombre de la pizza
     const h_nombre = document.createElement('h2');
     h_nombre.innerHTML = pizza.nombre;
     div_detalle.appendChild(h_nombre);
 
+    //lista para los ingredientes
     const ul_ingredientes=document.createElement('ul');
     div_detalle.appendChild(ul_ingredientes);
 
@@ -105,14 +110,32 @@ const _muestraDetallesPizza = (pizza) => {
         ul_ingredientes.appendChild(li_ingrediente);
     })
 
+    /************
+     * render de la imagen de la pizza
+     */
+    //const div_imagen=document.getElementById('foto');
+    // div_imagen.innerHTML='';
+    // const image=document.createElement('img');
+    // image.src=pizza.imageReference;
+    // div_imagen.appendChild(image);
+
+
+    /*********************
+     * render de comentarios
+     */
     const div_comentarios=document.getElementById('comentarios');
     div_comentarios.innerHTML='';
     
     pizza.listaComentarios.forEach(element=>{
         const div_linea_comentario=document.createElement('div');
+        let dateComentario = new Date(Date.parse(element.fecha));
+        let fechaComentario=dateComentario.toLocaleDateString();
+        let horaComentario=dateComentario.toLocaleTimeString();
+        let texto=  '<b>'+fechaComentario+'  '+horaComentario+' '+
+                    element.user+' dice: </b>'+element.texto;
+        div_linea_comentario.innerHTML=texto;
 
-        div_linea_comentario.innerText=`${element.fecha}`element.texto;
-        div_linea_comentario.className='linea_comentario'
+        //div_linea_comentario.className='linea_comentario'
         div_comentarios.appendChild(div_linea_comentario);
 
     });    
