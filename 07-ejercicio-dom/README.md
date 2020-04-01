@@ -114,9 +114,27 @@ La tabla, que puede ser muy grande, si hacemos el div de tamaño fijo y overflow
 
 <img src="....">
 
+```html
+    <img id="imagenpizzas" src="" alt="" >
+    <script>
+        document.getElementById("imagenpizzas").src 
+            = "http://localhost:8080/pizzas/imagen/236/"
+    </script>
+```
+
 (necesitamos el backend...)
 
 # 6. Recuperar los datos del backend
+
+```javascript
+    fetch('http://localhost:8080/api/pizzas/').then(
+        res => res.json()
+    ).then(
+        console.log
+    ).catch(
+        err => console.log(err)
+    )
+```
 
 (Promesas)
 
