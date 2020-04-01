@@ -18,7 +18,6 @@ console.log(textoHora);
 
 const miFechaNacimiento = new Date(1974, 6-1, 6, 6, 6 ,6);
 
-
 const textoBirthday = `
     El año es: ${miFechaNacimiento.getFullYear()}
     El mes es : ${miFechaNacimiento.getMonth()+1}

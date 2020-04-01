@@ -96,15 +96,23 @@ Toda la parte de divs , cssgrid y tamaños (plantilla) en el html
 
 La tabla, que puede ser muy grande, si hacemos el div de tamaño fijo y overflow auto  o overflow-y scroll mantenemos el tamaño
 
-
+> Añadido:
+> Hacer un input de búsqueda encima de la tabla y, o bien un
+> botón buscar y busca el texto en el nombre de la pizza o 
+> bien que cada vez que se pulse una letra en el input
+> haga la búsqueda
 
 # 4. Mostrar los comentarios en la descripción de la pizza
 - Máx 3 comentarios
-
 (Date)
 
 
+(Java - JSONIgnore)
+(Java - CORS)
+
 # 5. Añadir la imágen a la pizza
+
+<img src="....">
 
 (necesitamos el backend...)
 
