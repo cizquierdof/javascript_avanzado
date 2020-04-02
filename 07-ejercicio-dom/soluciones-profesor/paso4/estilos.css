@@ -1,0 +1,86 @@
+
+.container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 300px auto;
+}
+
+#tabla {
+    overflow-y: scroll;
+}
+
+.tabla-pizzas {
+    border: 1px solid black;
+    width: 100%;
+}
+
+.impar {
+    background-color: lightgray;
+}
+
+.par {
+    background-color: aliceblue;
+}
+
+.pizza-detalle h1 {
+    font-size: 1em;
+    text-align: center;
+    font-variant-caps: all-small-caps;
+}
+
+.pizza-detalle li {
+    font-size: 0.7em;
+}
+
+.pizza-content {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 160px 140px;
+}
+
+.comentarios {
+    grid-column: 1/3;
+}
+
+.comentarios li {
+    list-style-type: none;
+}
+
+pizza-comentario {
+    display: grid;
+    grid-template-columns: 30px auto;
+    box-shadow: 13px 11px 13px -7px rgba(0,0,0,0.75);
+    margin: 1rem;
+    background-color: antiquewhite;
+    padding-top: 4px;
+    padding-left: 5px;
+}
+
+pizza-comentario .puntuacion{
+    grid-row: 1/3;
+    font-size: 2em;
+   
+}
+
+pizza-comentario .texto {
+    grid-row: 2;
+    font-size: small;
+}
+
+pizza-comentario .fecha {
+    grid-row: 1;
+    font-size: 0.5em;
+    color: blue;
+    font-weight: bold;
+}
+
+.pizza-imagen img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.pizza-imagen {
+    padding: 1em;
+}
+
+

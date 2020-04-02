@@ -1,0 +1,246 @@
+
+.container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 300px auto;
+}
+
+#tabla {
+    overflow-y: scroll;
+}
+
+.tabla-pizzas {
+    border: 1px solid black;
+    width: 100%;
+}
+
+.impar {
+    background-color: lightgray;
+}
+
+.par {
+    background-color: aliceblue;
+}
+
+.pizza-detalle h1 {
+    font-size: 1em;
+    text-align: center;
+    font-variant-caps: all-small-caps;
+}
+
+.pizza-detalle li {
+    font-size: 0.7em;
+}
+
+.pizza-content {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 160px 140px;
+}
+
+.comentarios {
+    grid-column: 1/3;
+}
+
+.comentarios li {
+    list-style-type: none;
+}
+
+pizza-comentario {
+    display: grid;
+    grid-template-columns: 30px auto;
+    box-shadow: 13px 11px 13px -7px rgba(0,0,0,0.75);
+    margin: 1rem;
+    background-color: antiquewhite;
+    padding-top: 4px;
+    padding-left: 5px;
+}
+
+pizza-comentario .puntuacion{
+    grid-row: 1/3;
+    font-size: 2em;
+   
+}
+
+pizza-comentario .texto {
+    grid-row: 2;
+    font-size: small;
+}
+
+pizza-comentario .fecha {
+    grid-row: 1;
+    font-size: 0.5em;
+    color: blue;
+    font-weight: bold;
+}
+
+
+.container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 300px auto;
+}
+
+#tabla {
+    overflow-y: scroll;
+}
+
+.tabla-pizzas {
+    border: 1px solid black;
+    width: 100%;
+}
+
+.impar {
+    background-color: lightgray;
+}
+
+.par {
+    background-color: aliceblue;
+}
+
+.pizza-detalle h1 {
+    font-size: 1em;
+    text-align: center;
+    font-variant-caps: all-small-caps;
+}
+
+.pizza-detalle li {
+    font-size: 0.7em;
+}
+
+.pizza-content {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 160px 140px;
+}
+
+.comentarios {
+    grid-column: 1/3;
+}
+
+.comentarios li {
+    list-style-type: none;
+}
+
+pizza-comentario {
+    display: grid;
+    grid-template-columns: 30px auto;
+    box-shadow: 13px 11px 13px -7px rgba(0,0,0,0.75);
+    margin: 1rem;
+    background-color: antiquewhite;
+    padding-top: 4px;
+    padding-left: 5px;
+}
+
+pizza-comentario .puntuacion{
+    grid-row: 1/3;
+    font-size: 2em;
+   
+}
+
+pizza-comentario .texto {
+    grid-row: 2;
+    font-size: small;
+}
+
+pizza-comentario .fecha {
+    grid-row: 1;
+    font-size: 0.5em;
+    color: blue;
+    font-weight: bold;
+}
+
+.pizza-imagen img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.pizza-imagen {
+    padding: 1em;
+    text-align: center;
+}
+
+
+
+.lds-spinner {
+    color: official;
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+  .lds-spinner div {
+    transform-origin: 40px 40px;
+    animation: lds-spinner 1.2s linear infinite;
+  }
+  .lds-spinner div:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 3px;
+    left: 37px;
+    width: 6px;
+    height: 18px;
+    border-radius: 20%;
+    background: black;
+  }
+  .lds-spinner div:nth-child(1) {
+    transform: rotate(0deg);
+    animation-delay: -1.1s;
+  }
+  .lds-spinner div:nth-child(2) {
+    transform: rotate(30deg);
+    animation-delay: -1s;
+  }
+  .lds-spinner div:nth-child(3) {
+    transform: rotate(60deg);
+    animation-delay: -0.9s;
+  }
+  .lds-spinner div:nth-child(4) {
+    transform: rotate(90deg);
+    animation-delay: -0.8s;
+  }
+  .lds-spinner div:nth-child(5) {
+    transform: rotate(120deg);
+    animation-delay: -0.7s;
+  }
+  .lds-spinner div:nth-child(6) {
+    transform: rotate(150deg);
+    animation-delay: -0.6s;
+  }
+  .lds-spinner div:nth-child(7) {
+    transform: rotate(180deg);
+    animation-delay: -0.5s;
+  }
+  .lds-spinner div:nth-child(8) {
+    transform: rotate(210deg);
+    animation-delay: -0.4s;
+  }
+  .lds-spinner div:nth-child(9) {
+    transform: rotate(240deg);
+    animation-delay: -0.3s;
+  }
+  .lds-spinner div:nth-child(10) {
+    transform: rotate(270deg);
+    animation-delay: -0.2s;
+  }
+  .lds-spinner div:nth-child(11) {
+    transform: rotate(300deg);
+    animation-delay: -0.1s;
+  }
+  .lds-spinner div:nth-child(12) {
+    transform: rotate(330deg);
+    animation-delay: 0s;
+  }
+  @keyframes lds-spinner {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  
+
+
+
