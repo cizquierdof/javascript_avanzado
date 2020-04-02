@@ -1,6 +1,6 @@
 //si en el módulo se definió como export default 
 //se debe importar sin llaves
-import pizzas from './pizzas-content.js';
+//import pizzas from './pizzas-content.js';
 
 const _ordenaPizzasPorCampo = (campo) => {
     let pizzaOrdenada = [];
@@ -20,10 +20,10 @@ const _ordenaPizzasPorCampo = (campo) => {
                 return 0;
             });
     }
-    createTable(pizzaOrdenada ? pizzaOrdenada : pizzas);
+    render(pizzaOrdenada ? pizzaOrdenada : pizzas);
 }
 
-const createTable = (p) => {
+const render = (pizza) => {
 
     /*****************
     *creo la tabla y le añado un id que luego utilizaremos para localizarla
@@ -40,7 +40,7 @@ const createTable = (p) => {
     tabla.appendChild(_headerTable());
 
     //recorremos el array creado por _createTableRow y lo añadimos como elementos
-    _createTableRow(p ? p : pizzas).forEach(element => {
+    _createTableRow(pizza ? pizza : pizzas).forEach(element => {
 
         tabla.appendChild(element)
     });
@@ -193,7 +193,7 @@ const _filtroPizzas=()=>{
       }  
     );
     console.log(pizzaFiltrada);
-    createTable(pizzaFiltrada);
+    render(pizzaFiltrada);
 
 }
 
@@ -202,11 +202,10 @@ const init = () => {
         .then(res => res.json()
          .then(
           res => {
-              console.log(res);
-              createTable(res);   
+              render(res);   
                    }
       ));
 
-    createTable(); 
+    render(); 
 }
 document.body.addEventListener('load', init());
