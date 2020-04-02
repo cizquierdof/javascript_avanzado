@@ -45,6 +45,9 @@ const createTable = (p) => {
         tabla.appendChild(element)
     });
 
+    //filtrado de pizzas por el input
+    const entrada=document.getElementById('entrada');
+    entrada.addEventListener('keyup',_filtroPizzas);
     return tabla;
 
 }
@@ -86,14 +89,14 @@ const _headerTable = () => {
 }
 
 const _muestraDetallesPizza = (pizza) => {
-    console.log(pizza);
+   // console.log(pizza);
 
     /****************
      * render de ingredientes de pizzas
      * */
     const div_detalle = document.getElementById('ingredientes');
     //limpia el contenido para que no se acumule
-    div_detalle.innerHTML='';
+    div_detalle.innerHTML = '';
 
     //nombre de la pizza
     const h_nombre = document.createElement('h2');
@@ -101,45 +104,47 @@ const _muestraDetallesPizza = (pizza) => {
     div_detalle.appendChild(h_nombre);
 
     //lista para los ingredientes
-    const ul_ingredientes=document.createElement('ul');
+    const ul_ingredientes = document.createElement('ul');
     div_detalle.appendChild(ul_ingredientes);
 
-    pizza.listaIngredientes.forEach(element=>{
-        const li_ingrediente=document.createElement('li');
-        li_ingrediente.innerText=element.nombre;
+    pizza.listaIngredientes.forEach(element => {
+        const li_ingrediente = document.createElement('li');
+        li_ingrediente.innerText = element.nombre;
         ul_ingredientes.appendChild(li_ingrediente);
     })
 
     /************
      * render de la imagen de la pizza
      */
-    //const div_imagen=document.getElementById('foto');
-    // div_imagen.innerHTML='';
-    // const image=document.createElement('img');
-    // image.src=pizza.imageReference;
-    // div_imagen.appendChild(image);
+
+    const div_imagen=document.getElementById('foto');
+     div_imagen.innerHTML='';
+     const image=document.createElement('img');
+               image.src='http://localhost:8080/pizzas/imagen/'+pizza.imagen.id+'/';
+               div_imagen.appendChild(image);
+
+
 
 
     /*********************
      * render de comentarios
      */
-    const div_comentarios=document.getElementById('comentarios');
-    div_comentarios.innerHTML='';
-    
-    pizza.listaComentarios.forEach(element=>{
-        const div_linea_comentario=document.createElement('div');
+    const div_comentarios = document.getElementById('comentarios');
+    div_comentarios.innerHTML = '';
+
+    pizza.listaComentarios.forEach(element => {
+        const div_linea_comentario = document.createElement('div');
         let dateComentario = new Date(Date.parse(element.fecha));
-        let fechaComentario=dateComentario.toLocaleDateString();
-        let horaComentario=dateComentario.toLocaleTimeString();
-        let texto=  '<b>'+fechaComentario+'  '+horaComentario+' '+
-                    element.user+' dice: </b>'+element.texto;
-        div_linea_comentario.innerHTML=texto;
+        let fechaComentario = dateComentario.toLocaleDateString();
+        let horaComentario = dateComentario.toLocaleTimeString();
+        let texto = '<b>' + fechaComentario + '  ' + horaComentario + ' ' +
+            element.user + ' dice: </b>' + element.texto;
+        div_linea_comentario.innerHTML = texto;
 
         //div_linea_comentario.className='linea_comentario'
         div_comentarios.appendChild(div_linea_comentario);
 
-    });    
-
+    });
 
 }
 
@@ -177,5 +182,31 @@ const _createTableRow = (pizzas) => {
     return arrayrows;   //devolvemos un array de filas de datos para la tabla
 }
 
-const init = () => { createTable(); }
+/****************
+ * filtrar pizzas por entrada del input
+ */
+const _filtroPizzas=()=>{
+    let pizzaFiltrada=pizzas.filter(
+      el=>{
+        console.log(entrada.value);
+        return  el.nombre.toLowerCase().indexOf(entrada.value.toLowerCase())>-1;
+      }  
+    );
+    console.log(pizzaFiltrada);
+    createTable(pizzaFiltrada);
+
+}
+
+const init = () => { 
+          fetch('http://localhost:8080/api/pizzas/')
+        .then(res => res.json()
+         .then(
+          res => {
+              console.log(res);
+              createTable(res);   
+                   }
+      ));
+
+    createTable(); 
+}
 document.body.addEventListener('load', init());

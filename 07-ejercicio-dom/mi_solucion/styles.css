@@ -39,7 +39,7 @@ body{
 
 #foto img{
     padding: 60px 60px 10px 10px;
-    width: 350px;
+    max-width: 90%;
 }
 
 .wrapper-comentarios{
@@ -106,4 +106,15 @@ tr:hover{
 #tabla_pizzas td:first-child{
     text-align: center;
     padding: 0%;
+}
+.div-entrada {
+    margin: auto;
+}
+#entrada{
+    height: 2rem;
+    border-radius: 15px;
+    background-color:  rgb(243, 237, 230);
+    border: 1px solid;
+    padding: 0 10px ;
+    margin-left: 0.5rem;
 }
